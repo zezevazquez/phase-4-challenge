@@ -1,24 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Vinyl</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <script type="text/javascript" src="/script.js"></script>
-</head>
-<body>
+<% include partials/header %>
+<% include partials/navbar %>
 
   <h1>Vinyl</h1>
+  <img class="vinyl-img center-block" src="https://static.pexels.com/photos/164901/pexels-photo-164901.jpeg" alt="image of records inside record player" />
 
-  <h2>Records</h2>
-
-  <div class="album-list">
-    <% albums.forEach(function(album) { %>
-      <div>
-        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-        <span><%= album.artist %></span>
+  <div class="row">
+    <div class="col">
+      <h2>Records</h2>
+      <div class="album-list">
+        <% albums.forEach(function(album) { %>
+          <div>
+          <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+          <span><%= album.artist %></span>
+          </div>
+          <% }) %>
+        </div>
+    </div>
+    <div class="col">
+      <h2>Recent Review</h2>
+      <div class="review-list">
+        <% albums.forEach(function(album) { %>
+          <div>
+            <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+            <span><%= album.artist %></span>
+          </div>
+        <% }) %>
       </div>
-    <% }) %>
+    </div>
   </div>
 
-</body>
-</html>
+<% include partials/footer %>

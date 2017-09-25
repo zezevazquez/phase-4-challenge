@@ -3,3 +3,8 @@ html, body {
   padding: 0;
   width: 100vw;
 }
+
+.vinyl-img {
+  height: 100%;
+  width: 60%;
+}
