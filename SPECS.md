@@ -115,8 +115,8 @@ Users CANNOT:
 
 Layout:
 
-- [ ] __10:__ The site-wide header is visible on the sign up page.
-- [ ] __20:__ The layout of the sign up page matches the wireframes.
+- [x] __10:__ The site-wide header is visible on the sign up page.
+- [x] __20:__ The layout of the sign up page matches the wireframes.
 
 ## Sign In
 

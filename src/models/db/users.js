@@ -2,7 +2,7 @@ const db = require('./index')
 
 const createUser = (name, email, password) => {
   console.log('userinfo inside of db file:::', name, email, password)
-  
+
   return db.query(`
     INSERT INTO
       users (name, email, password)
@@ -12,7 +12,6 @@ const createUser = (name, email, password) => {
       *
   `,
   [ name, email, password ])
-    .catch(error => console.log(error))
 }
 
 // const findUserByEmail = (email) => {

@@ -11,9 +11,14 @@ router.post('/signup', (req, res) => {
   .then((users) => {
     res.redirect(`/users/${users[0].id}`)
   })
+  .catch(error => {
+    if (error.code === '23505') {
+      res.render('signup', { error: 'email is already in use'})
+    }
+  })
 })
 
-router.get('/users/:userId', (req, res) => {
+router.get('/:userId', (req, res) => {
   console.log('rendering some user_profile')
   res.render('user_profile')
 })
