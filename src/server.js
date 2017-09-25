@@ -1,7 +1,9 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const db = require('./db')
+const { signupUser } = require('./models/users')
+const { getAlbums, getAlbumsByID } = require('./models/albums')
+
 
 const port = process.env.PORT || 3000
 
@@ -15,26 +17,21 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', (req, res) => {
-  db.getAlbums((error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
+  return getAlbums()
+    .then((albums) => {
       res.render('index', {albums})
-    }
-  })
+    })
+    .catch(error => console.log('error inside of inside /'))
 })
 
 app.get('/albums/:albumID', (req, res) => {
-  const albumID = req.params.albumID
-
-  db.getAlbumsByID(albumID, (error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
+  const { albumID } = req.params
+  return getAlbumsByID(albumID)
+    .then((albums) => {
       const album = albums[0]
       res.render('album', {album})
-    }
   })
+  .catch(error => console.log('inside /albums/:albumID'))
 })
 
 app.get('/signup', (req, res) => {
@@ -42,12 +39,10 @@ app.get('/signup', (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
-  const user = req.body
-  db.signupUser(user, (error, users) => {
-    console.log('inside of /signup post:::: ', users)
-    console.log('redirecting to :::: userID:', users[0].id)
+  const { name, email, password} = req.body
+  return signupUser(name, email, password)
+  .then((users) => {
     res.redirect(`/users/${users[0].id}`)
-
   })
 })
 
