@@ -1,5 +1,4 @@
 const { getAll, getByID } = require('./db/albums')
-console.log('loggin getAlbums:: ',getAll)
 
 const getAlbums = () => {
   return getAll()
