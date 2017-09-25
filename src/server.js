@@ -37,6 +37,18 @@ app.get('/albums/:albumID', (req, res) => {
   })
 })
 
+app.get('/signup', (req, res) => {
+  res.render('signup')
+})
+app.post('/signup', (req, res) => {
+  const user = req.body
+  db.signupUser(user, (error, users) => {
+    console.log('inside of /signup post:::: ', user)
+    res.render('signup')
+
+  })
+})
+
 app.use((req, res) => {
   res.status(404).render('not_found')
 })

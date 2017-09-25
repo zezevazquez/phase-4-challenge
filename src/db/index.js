@@ -14,6 +14,15 @@ function getAlbumsByID(albumID, cb) {
   _query('SELECT * FROM albums WHERE id = $1', [albumID], cb)
 }
 
+function signupUser(user, cb) {
+  console.log('inside of db signupUser::::', user)
+  _query(`
+    INSERT INTO
+      users (name, email, password)
+    VALUES ($1, $2, $3)
+    RETURNING *`, [user.name, user.email, user.password], cb)
+}
+
 function _query(sql, variables, cb) {
   console.log('QUERY ->', sql.replace(/[\n\s]+/g, ' '), variables)
 
@@ -32,4 +41,5 @@ function _query(sql, variables, cb) {
 module.exports = {
   getAlbums,
   getAlbumsByID,
+  signupUser
 }
