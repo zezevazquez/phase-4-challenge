@@ -40,13 +40,20 @@ app.get('/albums/:albumID', (req, res) => {
 app.get('/signup', (req, res) => {
   res.render('signup')
 })
+
 app.post('/signup', (req, res) => {
   const user = req.body
   db.signupUser(user, (error, users) => {
-    console.log('inside of /signup post:::: ', user)
-    res.render('signup')
+    console.log('inside of /signup post:::: ', users)
+    console.log('redirecting to :::: userID:', users[0].id)
+    res.redirect(`/users/${users[0].id}`)
 
   })
+})
+
+app.get('/users/:userId', (req, res) => {
+  console.log('rendering some user_profile')
+  res.render('user_profile')
 })
 
 app.use((req, res) => {
