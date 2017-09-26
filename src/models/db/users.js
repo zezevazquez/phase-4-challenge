@@ -1,8 +1,6 @@
 const db = require('./index')
 
 const createUser = (name, email, password) => {
-  console.log('userinfo inside of db file:::', name, email, password)
-
   return db.query(`
     INSERT INTO
       users (name, email, password)
@@ -14,17 +12,18 @@ const createUser = (name, email, password) => {
   [ name, email, password ])
 }
 
-// const findUserByEmail = (email) => {
-//   return db.query(`
-//     SELECT
-//       email, password
-//     FROM
-//       users
-//     WHERE
-//       email=$1
-//   `, [ email ])
-// }
+const findUser = (email, password) => {
+  return db.query(`
+    SELECT
+      id, email, password
+    FROM
+      users
+    WHERE
+      email=$1 AND password=$2
+  `, [ email, password ])
+}
 
 module.exports = {
-  createUser
+  createUser,
+  findUser
 }

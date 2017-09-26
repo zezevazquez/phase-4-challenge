@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { signupUser } = require('../../models/users')
+const { signupUser, userSignIn } = require('../../models/users')
 
 router.get('/signup', (req, res) => {
   res.render('signup')
@@ -16,6 +16,27 @@ router.post('/signup', (req, res) => {
       res.render('signup', { error: 'email is already in use'})
     }
   })
+})
+
+router.get('/sign-in', (req, res) => {
+  console.log('am i in signing?!!')
+  res.render('signin')
+})
+
+router.post('/sign-in', (req, res) => {
+  const { email, password } = req.body
+  console.log('inside signin req body:::',req.body)
+  return userSignIn(email, password)
+    .then((users) => {
+      console.log('users inside post /sign-in',users)
+      res.redirect(`/users/${users[0].id}`)
+    })
+    .catch(error => {
+      // if (error.code === '23505') {
+      //   res.render('signin', { error: 'invalid login credentials!'})
+      // }
+      console.log('logging error:::',error)
+    })
 })
 
 router.get('/:userId', (req, res) => {
