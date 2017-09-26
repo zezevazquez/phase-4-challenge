@@ -1,5 +1,6 @@
 const {
-  getReviewsByUser
+  getReviewsByUser,
+  deleteSingle
 } = require('./db/reviews')
 
 const getUsersReviews = (userID) => {
@@ -12,6 +13,13 @@ const getUsersReviews = (userID) => {
     })
 }
 
+const deleteReview = (reviewID) => {
+  console.log('inside of MODELS!::::',reviewID)
+  return deleteSingle(reviewID)
+
+}
+
 module.exports = {
-  getUsersReviews
+  getUsersReviews,
+  deleteReview
 }

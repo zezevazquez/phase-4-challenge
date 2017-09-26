@@ -1,6 +1,6 @@
 const db = require('./index')
 
-const getReviewsByUser = (userID)=> {
+const getReviewsByUser = (userID) => {
   return db.query(`
     SELECT
       reviews.*, albums.title
@@ -13,6 +13,17 @@ const getReviewsByUser = (userID)=> {
   `, [userID])
 }
 
+const deleteSingle = (reviewID) => {
+  console.log('inside of db DELETESINGLE', reviewID)
+  return db.query(`
+    DELETE FROM
+      reviews
+    WHERE
+      id=$1::int
+  `, [reviewID])
+}
+
 module.exports = {
-  getReviewsByUser
+  getReviewsByUser,
+  deleteSingle
 }

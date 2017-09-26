@@ -1,1 +1,1 @@
-console.log('hello from the browser JavaScript')
+console.log('sanity check in le browser')

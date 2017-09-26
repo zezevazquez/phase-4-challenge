@@ -56,7 +56,6 @@ router.get('/:id', (req, res) => {
     .then((profile) => {
       return getUsersReviews(profile.id)
         .then((reviews) => {
-          console.log('these are the reviews::', reviews)
           res.render('user_profile', {user: req.session.user, profile, reviews})
         })
     })

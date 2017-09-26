@@ -9,6 +9,7 @@ VALUES
 INSERT INTO
   users (name, email, password)
 VALUES
+  (1,1,1),
   ('Zeze', 'onezeze@zeze.com', '123zeze'),
   ('Clowns', 'creepyaf@hotmail.com', 'password123'),
   ('anon', '_@anon.party', '***');
@@ -19,4 +20,8 @@ VALUES
   (1, 1, 'Never heard of em... blah blah blah too lazy too look up on spotify'),
   (2, 2, 'Hmm I know a Solange... that just about sums it up'),
   (3, 3, 'SouthPark?!! Remember that episode when Stans dad...?'),
+  (1, 4, 'finally, a band i recognize! ...but I am blanking on their songs right now!'),
+  (1, 4, 'finally, a band i recognize! ...but I am blanking on their songs right now!'),
+  (1, 4, 'finally, a band i recognize! ...but I am blanking on their songs right now!'),
+  (1, 4, 'finally, a band i recognize! ...but I am blanking on their songs right now!'),
   (1, 4, 'finally, a band i recognize! ...but I am blanking on their songs right now!');
