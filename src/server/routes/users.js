@@ -19,23 +19,17 @@ router.post('/signup', (req, res) => {
 })
 
 router.get('/sign-in', (req, res) => {
-  console.log('am i in signing?!!')
   res.render('signin')
 })
 
 router.post('/sign-in', (req, res) => {
   const { email, password } = req.body
-  console.log('inside signin req body:::',req.body)
   return userSignIn(email, password)
     .then((users) => {
-      console.log('users inside post /sign-in',users)
       res.redirect(`/users/${users[0].id}`)
     })
     .catch(error => {
-      // if (error.code === '23505') {
-      //   res.render('signin', { error: 'invalid login credentials!'})
-      // }
-      console.log('logging error:::',error)
+      res.render('signin', { error: 'invalid login credentials!'})
     })
 })
 

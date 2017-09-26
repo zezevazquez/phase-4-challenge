@@ -5,7 +5,6 @@ const signupUser = (name, email, password) => {
 }
 
 const userSignIn = (email, password) => {
-  console.log('inside userSignIn :::', email, ' ', password)
   return findUser(email, password)
 }
 
