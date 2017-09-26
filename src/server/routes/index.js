@@ -6,7 +6,7 @@ const albums = require('./albums')
 router.get('/', (req, res) => {
   return getAlbums()
     .then((albums) => {
-      res.render('index', {albums})
+      res.render('index', {albums, user: req.session.user})
     })
     .catch(error => console.log('error inside of /'))
 })
