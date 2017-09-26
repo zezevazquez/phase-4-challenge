@@ -35,8 +35,16 @@ router.post('/sign-in', (req, res) => {
     })
 })
 
+router.get('/signout', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/')
+  })
+})
+
 router.get('/:userId', (req, res) => {
   res.render('user_profile', {user: req.session.user})
 })
+
+
 
 module.exports = router
