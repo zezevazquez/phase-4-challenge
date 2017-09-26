@@ -1,4 +1,7 @@
-const { getAll, getByID } = require('./db/albums')
+const {
+  getAll,
+  getByID
+} = require('./db/albums')
 
 const getAlbums = () => {
   return getAll()

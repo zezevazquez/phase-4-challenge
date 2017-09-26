@@ -5,6 +5,10 @@ const {
   getUserProfile
 } = require('../../models/users')
 
+const {
+  getUsersReviews
+} = require('../../models/reviews')
+
 router.get('/signup', (req, res) => {
   res.render('signup', {user: req.session.user})
 })
@@ -48,11 +52,13 @@ router.get('/signout', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const userID = req.params.id
-  console.log('inside of profile', userID)
   return getUserProfile(userID)
     .then((profile) => {
-      console.log('inside route this is the profile::::', profile)
-      res.render('user_profile', {user: req.session.user, profile})
+      return getUsersReviews(profile.id)
+        .then((reviews) => {
+          console.log('these are the reviews::', reviews)
+          res.render('user_profile', {user: req.session.user, profile, reviews})
+        })
     })
 })
 
