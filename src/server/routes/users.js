@@ -1,5 +1,13 @@
 const router = require('express').Router()
-const { signupUser, userSignIn } = require('../../models/users')
+const {
+  signupUser,
+  userSignIn,
+  getUserProfile
+} = require('../../models/users')
+
+const {
+  getUsersReviews
+} = require('../../models/reviews')
 
 router.get('/signup', (req, res) => {
   res.render('signup', {user: req.session.user})
@@ -9,7 +17,8 @@ router.post('/signup', (req, res) => {
   const { name, email, password} = req.body
   return signupUser(name, email, password)
   .then((users) => {
-    req.session.user = users[0].id
+    console.log('inside of signup',users)
+    req.session.user = users[0]
     res.redirect(`/users/${users[0].id}`)
   })
   .catch(error => {
@@ -27,7 +36,7 @@ router.post('/sign-in', (req, res) => {
   const { email, password } = req.body
   return userSignIn(email, password)
     .then((users) => {
-      req.session.user = users[0].id
+      req.session.user = users[0]
       res.redirect(`/users/${users[0].id}`)
     })
     .catch(error => {
@@ -41,8 +50,16 @@ router.get('/signout', (req, res) => {
   })
 })
 
-router.get('/:userId', (req, res) => {
-  res.render('user_profile', {user: req.session.user})
+router.get('/:id', (req, res) => {
+  const userID = req.params.id
+  return getUserProfile(userID)
+    .then((profile) => {
+      return getUsersReviews(profile.id)
+        .then((reviews) => {
+          console.log(':: profiles:::', profile, ':::: session::::', req.session.user)
+          res.render('user_profile', {user: req.session.user, profile, reviews})
+        })
+    })
 })
 
 
