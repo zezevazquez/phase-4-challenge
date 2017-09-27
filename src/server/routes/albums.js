@@ -25,4 +25,9 @@ router.get('/:reviewID/delete', (req, res) => {
   .catch(error => console.log('inside /reviews/delete/:reviewID'))
 })
 
+router.get('/:albumID/reviews/new', (req, res) => {
+  const { albumID } = req.params
+  res.render('new_review')
+})
+
 module.exports = router

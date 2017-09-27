@@ -11,6 +11,7 @@
       <br>
       <h3>Name: <%=reviews[0].name%></h3>
       <br />
+      <a href="/albums/<%=reviews[0].id%>/reviews/new" >New Post!</a>
       <div class="review-feed">
         <% reviews.forEach((review) => { %>
           <div class="row">

@@ -1,0 +1,15 @@
+<% include partials/header %>
+<% include partials/navbar %>
+
+<div class="container-fluid">
+  <h1>New review for: <small><%album.title%></small></h1>
+
+  <form method="post" action="/albums/:albumID/reviews/new" class="form-group">
+    <label for="exampleTextarea">Your review: </label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    <input type="submit" class="btn btn-primary" />
+  </form>
+  <h5><%=error%></h5>
+</div>
+
+<% include partials/footer %>
