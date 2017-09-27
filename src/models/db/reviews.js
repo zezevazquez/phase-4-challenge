@@ -38,6 +38,17 @@ const deleteSingle = (reviewID) => {
   `, [reviewID])
 }
 
+const createReview = (user_id, album_id, review_text) => {
+  return db.query(`
+    INSERT INTO
+      reviews (name, email, password)
+    VALUES
+      ($1::text, $2::text, $3::text)
+    RETURNING
+      *
+  `, [userID, albumID, review_text])
+}
+
 module.exports = {
   getReviewsByUser,
   getReviewsByAlbum,

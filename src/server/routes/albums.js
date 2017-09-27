@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { getAlbumsByID } = require('../../models/albums')
 const {
+  addReview,
   getAlbumReviews,
   deleteReview
  } = require('../../models/reviews')
@@ -27,6 +28,23 @@ router.get('/:reviewID/delete', (req, res) => {
 
 router.get('/:albumID/reviews/new', (req, res) => {
   const { albumID } = req.params
+  console.log('albumID::::', albumID)
+  getAlbumsByID(albumID)
+    .then((albums) => {
+      const album = albums[0]
+      console.log('inside of get album/review/new::::', album)
+      res.render('new_review', {album})
+
+    })
+})
+
+router.post('/:albumID/reviews/new', (req, res) => {
+  const { albumID, review_text } = req.params
+  const userID = req.session.user
+  return addReview(userID, albumID, review_text)
+    .then(() => {
+      res.redirect(``)
+    })
   res.render('new_review')
 })
 
