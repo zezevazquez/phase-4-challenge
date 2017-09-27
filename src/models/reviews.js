@@ -1,5 +1,6 @@
 const {
   getReviewsByUser,
+  getReviewsByAlbum,
   deleteSingle
 } = require('./db/reviews')
 
@@ -13,13 +14,25 @@ const getUsersReviews = (userID) => {
     })
 }
 
+const getAlbumReviews = (albumID) => {
+  console.log('inside of Models!::::', albumID)
+  return getReviewsByAlbum(albumID)
+    .then((reviews) => {
+      console.log('DEEP INSIDE MODELS::::::', reviews)
+      return reviews
+    })
+    .catch(error => {
+      throw error
+    })
+}
+
 const deleteReview = (reviewID) => {
-  console.log('inside of MODELS!::::',reviewID)
   return deleteSingle(reviewID)
 
 }
 
 module.exports = {
   getUsersReviews,
-  deleteReview
+  deleteReview,
+  getAlbumReviews
 }

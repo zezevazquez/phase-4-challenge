@@ -13,6 +13,21 @@ const getReviewsByUser = (userID) => {
   `, [userID])
 }
 
+const getReviewsByAlbum = (albumID) => {
+  return db.query(`
+    SELECT
+        reviews.*, users.name, albums.title
+      FROM
+        reviews
+      JOIN
+        users ON reviews.user_id = users.id
+      JOIN
+      	albums ON reviews.album_id = albums.id
+      WHERE
+        reviews.album_id = $1
+  `, [albumID])
+}
+
 const deleteSingle = (reviewID) => {
   console.log('inside of db DELETESINGLE', reviewID)
   return db.query(`
@@ -25,5 +40,6 @@ const deleteSingle = (reviewID) => {
 
 module.exports = {
   getReviewsByUser,
+  getReviewsByAlbum,
   deleteSingle
 }
