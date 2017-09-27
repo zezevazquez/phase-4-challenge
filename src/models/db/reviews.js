@@ -50,13 +50,13 @@ const getReviewsByAlbum = (albumID) => {
   `, [albumID])
 }
 
-const deleteSingle = (reviewID) => {
+const deleteSingle = (reviewID, userID) => {
   return db.query(`
     DELETE FROM
       reviews
     WHERE
-      id=$1::int
-  `, [reviewID])
+      id=$1::int AND user_id=$2::int
+  `, [reviewID, userID])
 }
 
 const createReview = (userID, albumID, review_text) => {

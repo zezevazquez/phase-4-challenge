@@ -203,8 +203,8 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __20:__ Delete a review when not logged in.
-- [ ] __20:__ Delete another user's review.
+- [x] __20:__ Delete a review when not logged in.
+- [x] __20:__ Delete another user's review.
 
 Layout:
 
@@ -229,12 +229,12 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __20:__ Submit a review when not logged in.
-- [ ] __20:__ Submit an empty review.
+- [x] __20:__ Submit a review when not logged in.
+- [x] __20:__ Submit an empty review.
 
 Layout:
 
-- [ ] __10:__ The site-wide header is visible on the new review page.
+- [x] __10:__ The site-wide header is visible on the new review page.
 - [ ] __20:__ The layout of the new review page matches the wireframes.
 
 ---

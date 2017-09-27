@@ -26,8 +26,9 @@ const getAlbumReviews = (albumID) => {
     })
 }
 
-const deleteReview = (reviewID) => {
-  return deleteSingle(reviewID)
+const deleteReview = (reviewID, userID) => {
+  console.log('inside of models', userID)
+  return deleteSingle(reviewID, userID)
 }
 
 const addReview = (userID, albumID, review_text) => {

@@ -14,20 +14,20 @@ router.get('/:albumID', (req, res) => {
   } else {
     return getAlbumReviews(albumID)
         .then((reviews) => {
-          console.log('reviews::', reviews, '\n ::: req.session.user:::', req.session.user)
           res.render('album', { reviews, user: req.session.user })
         })
         .catch(error => console.log('ERRORINSIDE!!'))
   }
 })
 
-router.get('/:reviewID/delete', (req, res) => {
-  const { reviewID } = req.params
+router.get('/:reviewID/:userID/delete', (req, res) => {
+  const { reviewID, userID } = req.params
+  console.log('inside of albums GET delete userID is ', userID)
 
   if (req.session.user === undefined) {
     res.redirect('/users/sign-in')
   } else {
-    return deleteReview(reviewID)
+    return deleteReview(reviewID, userID)
     .then(() => {
       res.redirect('back')
     })
@@ -56,6 +56,8 @@ router.post('/:albumID/reviews/new', (req, res) => {
 
   if (req.session.user === undefined) {
     res.redirect('/users/sign-in')
+  } else if (review_text.length < 10) {
+    res.redirect('back')
   } else {
     const userID = req.session.user.id
     return addReview(userID, albumID, review_text)

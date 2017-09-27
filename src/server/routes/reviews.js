@@ -4,13 +4,13 @@ const {
   deleteReview
 } = require('../../models/reviews')
 
-router.get('/:reviewID/delete', (req, res) => {
-  const { reviewID } = req.params
+router.get('/:reviewID/:userID/delete', (req, res) => {
+  const { reviewID, userID } = req.params
 
   if (req.session.user === undefined) {
     res.redirect('/users/sign-in')
   } else {
-    return deleteReview(reviewID)
+    return deleteReview(reviewID, userID)
     .then(() => {
       res.redirect(`/users/${req.session.user.id}`)
     })
