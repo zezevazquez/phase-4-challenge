@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     .then((albums) => {
       return last3Reviews()
         .then((reviews) => {
-          res.render('index', {albums, reviews, user: req.session.user})
+          res.render('index', { albums, reviews, user: req.session.user })
         })
     })
     .catch(error => console.log('error inside of /'))
