@@ -154,7 +154,7 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __20:__ Perform any actions that require a user to be signed in after signing out.
+- [x] __20:__ Perform any actions that require a user to be signed in after signing out.
 
 ## User Profile
 

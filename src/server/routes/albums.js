@@ -60,7 +60,7 @@ router.post('/:albumID/reviews/new', (req, res) => {
     const userID = req.session.user.id
     return addReview(userID, albumID, review_text)
       .then(() => {
-        res.redirect(``)
+        res.redirect(`/albums/${albumID}`)
       })
     res.render('new_review')
   }

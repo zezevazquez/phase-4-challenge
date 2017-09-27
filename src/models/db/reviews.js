@@ -12,6 +12,7 @@ const getReviewsByUser = (userID) => {
       reviews.album_id = albums.id
     WHERE
       reviews.user_id = $1
+    ORDER by review_date DESC
   `, [userID])
 }
 
