@@ -7,10 +7,30 @@ const getReviewsByUser = (userID) => {
     FROM
       reviews
     INNER JOIN
-      albums ON reviews.album_id = albums.id
+      albums
+    ON
+      reviews.album_id = albums.id
     WHERE
       reviews.user_id = $1
   `, [userID])
+}
+
+const getLast3Reviews = () => {
+  return db.query(`
+    SELECT
+      reviews.*, users.name, albums.title
+    FROM
+      reviews
+    JOIN
+      users
+    ON
+      reviews.user_id = users.id
+    JOIN
+      albums
+    ON
+      reviews.album_id = albums.id
+    ORDER BY review_date DESC LIMIT 3
+  `, [])
 }
 
 const getReviewsByAlbum = (albumID) => {
@@ -49,8 +69,9 @@ const createReview = (userID, albumID, review_text) => {
 }
 
 module.exports = {
-  createReview,
+  getLast3Reviews,
   getReviewsByUser,
   getReviewsByAlbum,
+  createReview,
   deleteSingle
 }

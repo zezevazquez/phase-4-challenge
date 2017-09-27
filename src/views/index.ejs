@@ -8,7 +8,7 @@
     <h2>Records</h2>
       <div class="container-fluid">
         <div class="album-list">
-          <% albums.forEach(function(album) { %>
+          <% albums.forEach((album) => { %>
             <div>
             <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
             <span><%= album.artist %></span>
@@ -21,10 +21,10 @@
     <h2>Recent Reviews</h2>
     <div class="container-fluid">
       <div class="review-list">
-        <% albums.forEach(function(album) { %>
+        <% reviews.forEach((review) => { %>
           <div>
-            <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-            <span><%= album.artist %></span>
+            <h5><a href="/albums/<%= review.album_id %>"><%= review.title %></a></h5>
+            <span><%= review.review_text %></span>
           </div>
         <% }) %>
       </div>
