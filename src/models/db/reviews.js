@@ -29,7 +29,6 @@ const getReviewsByAlbum = (albumID) => {
 }
 
 const deleteSingle = (reviewID) => {
-  console.log('inside of db DELETESINGLE', reviewID)
   return db.query(`
     DELETE FROM
       reviews
@@ -38,18 +37,19 @@ const deleteSingle = (reviewID) => {
   `, [reviewID])
 }
 
-const createReview = (user_id, album_id, review_text) => {
+const createReview = (userID, albumID, review_text) => {
   return db.query(`
     INSERT INTO
-      reviews (name, email, password)
+      reviews (user_id, album_id, review_text)
     VALUES
-      ($1::text, $2::text, $3::text)
+      ($1::integer, $2::integer, $3::text)
     RETURNING
       *
   `, [userID, albumID, review_text])
 }
 
 module.exports = {
+  createReview,
   getReviewsByUser,
   getReviewsByAlbum,
   deleteSingle

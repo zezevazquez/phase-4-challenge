@@ -16,10 +16,8 @@ const getUsersReviews = (userID) => {
 }
 
 const getAlbumReviews = (albumID) => {
-  console.log('inside of Models!::::', albumID)
   return getReviewsByAlbum(albumID)
     .then((reviews) => {
-      console.log('DEEP INSIDE MODELS::::::', reviews)
       return reviews
     })
     .catch(error => {

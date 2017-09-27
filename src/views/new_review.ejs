@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <h1><small>New review for: </small><%=album.title%></h1>
 
-  <form method="post" action="/albums/:albumID/reviews/new" class="form-group">
+  <form method="post" action="/albums/<%=album.id%>/reviews/new" class="form-group">
     <label for="review_text">Your review: </label>
     <textarea class="form-control" name="review_text" id="review_text" rows="3"></textarea>
     <input type="submit" class="btn btn-primary" />
