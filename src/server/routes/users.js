@@ -20,15 +20,15 @@ router.post('/sign-up', (req, res) => {
     res.render('signup', { error: 'enter valid credentials!', user: req.session.user})
   }  else {
     return signupUser(name, email, password)
-    .then((users) => {
-      req.session.user = users[0]
-      res.redirect(`/users/${users[0].id}`)
-    })
-    .catch(error => {
-      if (error.code === '23505') {
-        res.render('signup', { error: 'email is already in use', user: req.session.user})
-      }
-    })
+      .then((users) => {
+        req.session.user = users[0]
+        res.redirect(`/users/${users[0].id}`)
+      })
+      .catch(error => {
+        if (error.code === '23505') {
+          res.render('signup', { error: 'email is already in use', user: req.session.user})
+        }
+      })
   }
 
 })
@@ -63,12 +63,12 @@ router.get('/:id', (req, res) => {
     res.redirect('/users/sign-in')
   } else {
     return getUserProfile(userID)
-    .then((profile) => {
-      return getUsersReviews(profile.id)
-      .then((reviews) => {
-        res.render('user_profile', { user: req.session.user, profile, reviews })
+      .then((profile) => {
+        return getUsersReviews(profile.id)
+          .then((reviews) => {
+            res.render('user_profile', { user: req.session.user, profile, reviews })
+          })
       })
-    })
   }
 })
 

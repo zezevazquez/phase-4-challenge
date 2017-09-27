@@ -13,7 +13,7 @@
       <h6>Email: <%=profile.email%></h6>
       <h6>Join Date: <%=profile.join_date%></h6>
       <br />
-      <div class="review-feed">
+      <div class="review-feed review-list">
         <% reviews.forEach((review) => { %>
           <% review.review_date = new Date(review.review_date).toDateString() %>
           <div class="row">
