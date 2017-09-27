@@ -7,21 +7,22 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Placeholder_no_text.svg" class="img-fluid" alt="Responsive image">
     </div>
     <div class="col">
-      <h1>Welcome to your profile, <%=profile.name%>!</h1>
-      <br>
-      <h3>Name: <%=profile.name%></h3>
-      <h3>Email: <%=profile.email%></h3>
-      <h3>Join Date: <%=profile.join_date%></h3>
+      <% profile.join_date = new Date(profile.join_date).toDateString() %>
+      <h2>Welcome to your profile, <%=profile.name%>!</h2>
+      <h6>Name: <%=profile.name%></h6>
+      <h6>Email: <%=profile.email%></h6>
+      <h6>Join Date: <%=profile.join_date%></h6>
       <br />
       <div class="review-feed">
         <% reviews.forEach((review) => { %>
+          <% review.review_date = new Date(review.review_date).toDateString() %>
           <div class="row">
             <div class="col">
-              <span>Album Title: <a href="/albums/<%= review.album_id %>"><%=review.title%></span></h1></a>
+              <span>Album Title: <a href="/albums/<%= review.album_id %>"><%=review.title%></span></a>
               <br />
               <span>Album Review: <%=review.review_text%></span>
               <br />
-              <span>Description: <%=review.review_date%></span>
+              <span>Reviewed on: <%=review.review_date%></span>
               <br />
             </div>
             <div class="col">

@@ -9,11 +9,11 @@ const {
   getUsersReviews
 } = require('../../models/reviews')
 
-router.get('/signup', (req, res) => {
+router.get('/sign-up', (req, res) => {
   res.render('signup', {user: req.session.user})
 })
 
-router.post('/signup', (req, res) => {
+router.post('/sign-up', (req, res) => {
   const { name, email, password} = req.body
   return signupUser(name, email, password)
   .then((users) => {
@@ -52,13 +52,18 @@ router.get('/signout', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const userID = req.params.id
-  return getUserProfile(userID)
+
+  if (req.session.user === undefined) {
+    res.redirect('/users/sign-in')
+  } else {
+    return getUserProfile(userID)
     .then((profile) => {
       return getUsersReviews(profile.id)
-        .then((reviews) => {
-          res.render('user_profile', { user: req.session.user, profile, reviews })
-        })
+      .then((reviews) => {
+        res.render('user_profile', { user: req.session.user, profile, reviews })
+      })
     })
+  }
 })
 
 

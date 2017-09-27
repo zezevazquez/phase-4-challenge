@@ -16,7 +16,7 @@
         <% reviews.forEach((review) => { %>
           <div class="row">
             <div class="col">
-              <span>Album Title: <a href="/albums/<%= review.id %>"><%=review.title%></span></h1></a>
+              <span>Album Title: <a href="/albums/<%= review.album_id %>"><%=review.title%></span></h1></a>
               <br />
               <span>Album Review: <%=review.review_text%></span>
               <br />

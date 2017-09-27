@@ -66,6 +66,11 @@ h2 {
   width: 100%;
 }
 
+.signup {
+  display: block;
+  margin-bottom: 1em;
+}
+
 .review-feed {
     float: right;
 }
