@@ -12,7 +12,7 @@ const getReviewsByUser = (userID) => {
       reviews.album_id = albums.id
     WHERE
       reviews.user_id = $1
-    ORDER by review_date DESC
+    ORDER BY review_date DESC
   `, [userID])
 }
 
@@ -46,6 +46,7 @@ const getReviewsByAlbum = (albumID) => {
       	albums ON reviews.album_id = albums.id
       WHERE
         reviews.album_id = $1
+      ORDER BY review_date DESC
   `, [albumID])
 }
 
