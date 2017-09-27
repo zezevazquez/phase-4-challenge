@@ -1,12 +1,74 @@
-html, body {
+html, body{
   margin: 0;
   padding: 0;
   width: 100vw;
+  background-color: lightgrey;
+  font-size: 16px;
+}
+
+html,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: monospace;
+}
+
+nav {
+  background-color: black;
+  color: white;
+  padding: 0.3em 0.5em;
+}
+
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+h2 {
+  padding: 5%;
+}
+
+.page-column {
+  width: 70%;
+  margin: 0 auto;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.page-column-content{
+  padding: 1em;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+}
+.album-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.member {
+  padding: 0.4em 0.3em;
+}
+.review-text {
+  padding: 0.5em;
 }
 
 .vinyl-img {
   height: 400px;
   width: 100%;
+}
+
+.signup {
+  display: block;
+  margin-bottom: 1em;
 }
 
 .review-feed {

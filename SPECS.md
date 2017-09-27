@@ -84,13 +84,13 @@ Routing:
 Users can:
 
 - [x] __20:__ View all albums on the home page (under the "Records" heading).
-- [ ] __20:__ View only the _**3 most recent**_ reviews on the home page sorted by newest first.
-- [ ] __20:__ Click on an album title to go to the album page (e.g. `/albums/<ALBUM ID>`).
+- [x] __20:__ View only the _**3 most recent**_ reviews on the home page sorted by newest first.
+- [x] __20:__ Click on an album title to go to the album page (e.g. `/albums/<ALBUM ID>`).
 
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the home page.
-- [ ] __20:__ The layout of the home page matches the wireframes.
+- [x] __20:__ The layout of the home page matches the wireframes.
 
 ## Sign Up
 
@@ -116,7 +116,7 @@ Users CANNOT:
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the sign up page.
-- [ ] __20:__ The layout of the sign up page matches the wireframes.
+- [x] __20:__ The layout of the sign up page matches the wireframes.
 
 ## Sign In
 
@@ -140,7 +140,7 @@ Users CANNOT:
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the sign in page.
-- [ ] __20:__ The layout of the sign in page matches the wireframes.
+- [x] __20:__ The layout of the sign in page matches the wireframes.
 
 ## Sign Out
 
@@ -154,7 +154,7 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __20:__ Perform any actions that require a user to be signed in after signing out.
+- [x] __20:__ Perform any actions that require a user to be signed in after signing out.
 
 ## User Profile
 
@@ -169,7 +169,7 @@ Routing:
 Users can:
 
 - [x] __20:__ View their name, email, and join date.
-- [ ] __20:__ View only their submitted reviews sorted by newest first.
+- [x] __20:__ View only their submitted reviews sorted by newest first.
 - [x] __20:__ View "trash can" delete icons only next to reviews submitted by users.
 - [x] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the delete icon next to a review.
 - [x] __20:__ Have the pop-up dismissed after clicking Cancel.
@@ -178,7 +178,7 @@ Users can:
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the user profile page.
-- [ ] __20:__ The layout of the user profile page matches the wireframes.
+- [x] __20:__ The layout of the user profile page matches the wireframes.
 
 ## Album Details
 
@@ -193,7 +193,7 @@ Routing:
 Users can:
 
 - [X] __20:__ View the name of the album on the album page.
-- [ ] __20:__ View all reviews for the album on album page sorted by newest first.
+- [x] __20:__ View all reviews for the album on album page sorted by newest first.
 - [x] __20:__ View "trash can" delete icons next to reviews the user can delete.
 - [x] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the trash can icon next to a review.
 - [x] __20:__ Have the pop-up dismissed after clicking Cancel.
@@ -203,13 +203,13 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __20:__ Delete a review when not logged in.
-- [ ] __20:__ Delete another user's review.
+- [x] __20:__ Delete a review when not logged in.
+- [x] __20:__ Delete another user's review.
 
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the album page.
-- [ ] __20:__ The layout of the album page matches the wireframes.
+- [x] __20:__ The layout of the album page matches the wireframes.
 
 ## New Review
 
@@ -229,13 +229,13 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __20:__ Submit a review when not logged in.
-- [ ] __20:__ Submit an empty review.
+- [x] __20:__ Submit a review when not logged in.
+- [x] __20:__ Submit an empty review.
 
 Layout:
 
-- [ ] __10:__ The site-wide header is visible on the new review page.
-- [ ] __20:__ The layout of the new review page matches the wireframes.
+- [x] __10:__ The site-wide header is visible on the new review page.
+- [x] __20:__ The layout of the new review page matches the wireframes.
 
 ---
 

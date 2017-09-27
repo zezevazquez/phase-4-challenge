@@ -1,4 +1,5 @@
 const {
+  getLast3Reviews,
   getReviewsByUser,
   getReviewsByAlbum,
   deleteSingle,
@@ -25,17 +26,22 @@ const getAlbumReviews = (albumID) => {
     })
 }
 
-const deleteReview = (reviewID) => {
-  return deleteSingle(reviewID)
+const deleteReview = (reviewID, userID) => {
+  return deleteSingle(reviewID, userID)
 }
 
 const addReview = (userID, albumID, review_text) => {
   return createReview(userID, albumID, review_text)
 }
 
+const last3Reviews = () => {
+  return getLast3Reviews()
+}
+
 module.exports = {
   addReview,
   getUsersReviews,
   deleteReview,
-  getAlbumReviews
+  getAlbumReviews,
+  last3Reviews
 }
