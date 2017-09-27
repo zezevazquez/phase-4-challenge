@@ -1,6 +1,9 @@
 const router = require('express').Router()
 const { getAlbumsByID } = require('../../models/albums')
-const { getAlbumReviews } = require('../../models/reviews')
+const {
+  getAlbumReviews,
+  deleteReview
+ } = require('../../models/reviews')
 
 router.get('/:albumID', (req, res) => {
   const { albumID } = req.params
@@ -11,6 +14,15 @@ router.get('/:albumID', (req, res) => {
       res.render('album', {reviews})
     })
     .catch(error => console.log('ERRORINSIDE!!'))
+})
+
+router.get('/:reviewID/delete', (req, res) => {
+  const { reviewID } = req.params
+  return deleteReview(reviewID)
+    .then(() => {
+    res.redirect('back')
+  })
+  .catch(error => console.log('inside /reviews/delete/:reviewID'))
 })
 
 module.exports = router
