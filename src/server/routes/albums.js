@@ -14,6 +14,7 @@ router.get('/:albumID', (req, res) => {
   } else {
     return getAlbumReviews(albumID)
         .then((reviews) => {
+          console.log('reviews::', reviews, '\n ::: req.session.user:::', req.session.user)
           res.render('album', { reviews, user: req.session.user })
         })
         .catch(error => console.log('ERRORINSIDE!!'))
@@ -56,7 +57,6 @@ router.post('/:albumID/reviews/new', (req, res) => {
   if (req.session.user === undefined) {
     res.redirect('/users/sign-in')
   } else {
-    console.log('inside of POST:::', req.session.user.id)
     const userID = req.session.user.id
     return addReview(userID, albumID, review_text)
       .then(() => {
