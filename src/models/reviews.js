@@ -27,7 +27,6 @@ const getAlbumReviews = (albumID) => {
 }
 
 const deleteReview = (reviewID, userID) => {
-  console.log('inside of models', userID)
   return deleteSingle(reviewID, userID)
 }
 

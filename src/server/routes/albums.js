@@ -22,7 +22,6 @@ router.get('/:albumID', (req, res) => {
 
 router.get('/:reviewID/:userID/delete', (req, res) => {
   const { reviewID, userID } = req.params
-  console.log('inside of albums GET delete userID is ', userID)
 
   if (req.session.user === undefined) {
     res.redirect('/users/sign-in')
